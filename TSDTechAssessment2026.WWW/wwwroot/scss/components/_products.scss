@@ -1,0 +1,68 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+/* Container */
+.umb-block-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    padding: 20px;
+}
+
+/* Product card */
+.product {
+    background: $color-primary;
+    border-radius: 12px;
+    padding: $spacing-unit;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hover effect */
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Product image */
+.product img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+/* Product title */
+.product h2 {
+    font-size: $font-size-large;
+    margin: 8px 0;
+    color: #222;
+}
+
+/* Description */
+.product p {
+    font-size: $font-size-base;
+    color: $color-text;
+    margin: 4px 0;
+}
+
+/* Price styling */
+.product p:last-child {
+    font-weight: bold;
+    color: #111;
+    margin-top: auto;
+    font-size: 1rem;
+}
+
+/* Rating styling */
+.product p:nth-of-type(2) {
+    color: $color-text;
+    font-weight: 500;
+}
+
+.product p:nth-of-type(2)::before {
+  content: "⭐ ";
+}
