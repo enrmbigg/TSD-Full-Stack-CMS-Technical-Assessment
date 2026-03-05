@@ -1,0 +1,6 @@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@{
+    var content = Model.Content as ProductListing;
+}
+
+@await Component.RenderProductsListing(content.PageSize, content.Category, content.ShowOutOfStock, content.ShowInActive)
