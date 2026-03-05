@@ -1,0 +1,22 @@
+﻿@inherits UmbracoViewPage<ProductListingModel>
+
+@foreach (var product in Model.Products)
+{
+    <div class="product">
+        @if(product.HasImageUrl)
+        {
+            <img src="@product.ImageUrl" alt="@product.Name" />
+        }
+        <h2>@product.Name</h2>
+        @if(product.HasRating)
+        {
+            <p>Rating: @product.Rating</p>
+        }
+        <p>@product.Description</p>
+        @if (product.HasVariants)
+        {
+            <p>Available options: @string.Join(", ", product.Variants.Select((x => x.Name)))</p>
+        }
+        <p>Price: @product.DisplayPrice</p>
+    </div>
+}
